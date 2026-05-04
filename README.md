@@ -123,3 +123,18 @@ void loop()
 - ROS пакет для работы с TrackingCam v3 https://github.com/AppliedRobotics/tc3-ros-package
 
 Инструкция - https://wiki.appliedrobotics.ru/metod/Trackingcam_v3/g_5.html#connecting-trackingcam-v3-module-to-ros-operating-system
+
+- Общение между Mega2560 и ESP32 с прошивкой Bluetooth2Serial
+
+```cpp
+void setup() { 
+    Serial.begin(115200); 
+    Serial2.begin(115200);
+}
+
+void loop() {
+    if (Serial2.available()) { 
+        Serial.write(Serial2.read());
+    }
+}
+```
